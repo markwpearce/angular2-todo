@@ -1,0 +1,13 @@
+
+<ul class="collection with-header">
+  <li class="collection-header"><h3>To do ...</h3></li>
+  <li class="collection-item" *ngFor="#todo of todos | prioritySort:todos">
+    <input type="checkbox" [(ngModel)]="todo.done" ><label (click)="todo.done = !todo.done"></label>
+    <span class="todolist-text done-{{todo.done}}">{{todo.text}}</span>
+    <div class="secondary-content">
+      <span>Priority: {{todo.priority}}</span>
+      <button class="btn" (click)="raisePriority(todo)"><i class="material-icons">thumb_up</i></button>
+      <button class="btn"  (click)="lowerPriority(todo)"><i class="material-icons">thumb_down</i></button>
+    </div>
+  </li>
+</ul>
